@@ -1,0 +1,51 @@
+wandb_project: 'herdnet_v2'
+wandb_entity: 'grupo_8'
+wandb_run: 'model_054_test_1'
+device_name: 'cuda'
+
+model: 
+  name: 'HerdNet'
+  from_torchvision: False
+  pth_file: '/content/models/herdnet_model_v.1.0.2.pth'
+  kwargs:
+    num_layers: 34
+    pretrained: False
+    down_ratio: 2
+    head_conv: 64
+
+dataset:
+  img_size: [512,512]
+  anno_type: 'point'
+  num_classes: 7
+  collate_fn: null
+
+  class_def:
+    1: 'topi'
+    2: 'buffalo'
+    3: 'kob'
+    4: 'elephant'
+    5: 'warthog'
+    6: 'waterbuck'
+
+  name: 'CSVDataset'
+  csv_file: '/content/data/test.csv'
+  root_dir: '/content/data/test/'
+
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+
+evaluator:
+  name: 'HerdNetEvaluator'
+  threshold: 5
+  kwargs:
+    lmds_kwargs:
+      kernel_size: [3,3]
+      adapt_ts: 0.3
+
+stitcher:
+  name: 'HerdNetStitcher'
+  kwargs:
+    overlap: 160
+    down_ratio: ${test.model.kwargs.down_ratio}
+    up: False
+    reduction: 'mean'
