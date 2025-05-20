@@ -1,0 +1,13 @@
+hydra-core
+torch
+torchvision
+torchaudio
+wandb
+scipy
+pandas
+scikit-learn
+scikit-image
+pillow
+opencv-python
+albumentations
+fiftyone
