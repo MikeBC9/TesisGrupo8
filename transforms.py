@@ -262,7 +262,6 @@ class PointsToMask:
 
         mask = torch.zeros((1, self.img_height, self.img_width)).long()
 
-        # fill the mask
         if len(target['points']) > 0:
             for point, label in zip(target['points'], target['labels']):
                 x, y = point[0], point[1]
