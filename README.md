@@ -39,6 +39,8 @@ El modelo fue entrenado sobre un dataset real de 1.297 imágenes aéreas anotada
     ├── 020_Exploration/
     ├── 030_Notebooks/
     ├── 040_Modelo/
+    ├── 050_HerdNet/
+    ├── api/
     ├── data_classes_names.ipynb
     ├── transforms.py
     ├── README.md
@@ -70,7 +72,15 @@ El modelo fue entrenado sobre un dataset real de 1.297 imágenes aéreas anotada
 
 4. Usa la API desplegada para inferencia:
    - Swagger: http://3.19.40.171:8000/docs
-   - Frontend interactivo: http://3.19.40.171:8000/
+   - Interfaz para predecir: http://3.19.40.171:8000
+   - Dashboard: http://3.19.40.171:8000/dashboard
+
+      Instrucciones Básicas del API
+
+      1. Abrir el navegador: http://3.19.40.171:8000
+      2. Seleccionar imagen: Haz clic en el botón Choose File y selecciona una imagen desde tu dispositivo (idealmente JPG o PNG).
+      3. Ejecutar la inferencia: Presiona el botón verde Predecir.
+      4. Ver resultados: Se mostrará la imagen original. Aparecerán mapas por clase (zonas destacadas según la detección). Abajo verás las especies detectadas.
 
 ## 🐘 Dataset
 
